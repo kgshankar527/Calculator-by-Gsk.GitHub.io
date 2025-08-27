@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Calculator – GK</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="appbar">
+  <div class="tabs tab-container">
+    <div class="mask"></div>
+    <div class="indicator"></div>
+
+    <button class="tab active" data-target="#standard">Standard</button>
+    <button class="tab" data-target="#converters">Converters</button>
+    <button class="tab" data-target="#finance">Finance</button>
+  </div>
+
+  <div class="actions">
+    <button id="miniToggle" title="Mini / Float">↗️</button>
+    <button id="closeCalc" title="close">✖️</button>
+    <button id="moreMenu" title="More">⋮</button>
+  </div>
+</header>
+
+  <!-- Main Pages -->
+  <main class="pages">
+    <!-- Standard Calculator -->
+    <section id="standard" class="page active">
+      <div class="display-wrap">
+        <div id="history" class="history"></div>
+        <div id="display" class="display" role="textbox" aria-label="Result">0</div>
+      </div>
+
+      <div class="keys">
+        <button data-key="AC" class="op">AC</button>
+        <button data-key="BACK" class="op">⌫</button>
+        <button data-key="%" class="op">%</button>
+        <button data-key="/" class="op">÷</button>
+
+        <button data-key="7">7</button>
+        <button data-key="8">8</button>
+        <button data-key="9">9</button>
+        <button data-key="*" class="op">×</button>
+
+        <button data-key="4">4</button>
+        <button data-key="5">5</button>
+        <button data-key="6">6</button>
+        <button data-key="-" class="op">−</button>
+
+        <button data-key="1">1</button>
+        <button data-key="2">2</button>
+        <button data-key="3">3</button>
+        <button data-key="+" class="op">+</button>
+
+        <button data-key="00" class="ghost">00</button>
+        <button data-key="0">0</button>
+        <button data-key=".">.</button>
+        <button data-key="=" class="equals">=</button>
+      </div>
+    </section>
+
+    <!-- Converters -->
+    <section id="converters" class="page">
+      <div class="grid">
+        <button class="tile" data-open="age">🎂 Age</button>
+        <button class="tile" data-open="date">📅 Date diff</button>
+        <button class="tile" data-open="bmi">⚖️ BMI</button>
+        <button class="tile" data-open="length">📏 Length</button>
+        <button class="tile" data-open="mass">🏋️ Mass</button>
+        <button class="tile" data-open="temp">🌡️ Temperature</button>
+        <button class="tile" data-open="speed">🏎️ Speed</button>
+        <button class="tile" data-open="area">🗺️ Area</button>
+        <button class="tile" data-open="volume">🔲 Volume</button>
+        <button class="tile" data-open="data">💾 Data</button>
+        <button class="tile" data-open="numeral">🔁 Numeral</button>
+      </div>
+
+      <!-- Panels -->
+      <div class="panel" id="panel-age">
+        <h3>Age Calculator</h3>
+        <label>जन्म तिथि <input type="date" id="age-dob"></label>
+        <button class="primary" id="age-calc">Calculate</button>
+        <p id="age-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-date">
+        <h3>Date Difference</h3>
+        <label>From <input type="date" id="date-from"></label>
+        <label>To <input type="date" id="date-to"></label>
+        <button class="primary" id="date-calc">Calculate</button>
+        <p id="date-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-bmi">
+        <h3>BMI</h3>
+        <label>Height (cm) <input type="number" id="bmi-h" inputmode="decimal"></label>
+        <label>Weight (kg) <input type="number" id="bmi-w" inputmode="decimal"></label>
+        <button class="primary" id="bmi-calc">Calculate</button>
+        <p id="bmi-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-length">
+        <h3>Length</h3>
+        <div class="twocol">
+          <label>From
+            <select id="len-from">
+              <option value="m">Meter</option><option value="cm">Centimeter</option>
+              <option value="mm">Millimeter</option><option value="km">Kilometer</option>
+              <option value="in">Inch</option><option value="ft">Foot</option>
+            </select>
+          </label>
+          <label>To
+            <select id="len-to">
+              <option value="m">Meter</option><option value="cm">Centimeter</option>
+              <option value="mm">Millimeter</option><option value="km">Kilometer</option>
+              <option value="in">Inch</option><option value="ft">Foot</option>
+            </select>
+          </label>
+        </div>
+        <label>Value <input id="len-val" type="number" inputmode="decimal"></label>
+        <button class="primary" id="len-calc">Convert</button>
+        <p id="len-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-mass">
+        <h3>Mass</h3>
+        <div class="twocol">
+          <label>From
+            <select id="mass-from">
+              <option value="kg">Kilogram</option><option value="g">Gram</option>
+              <option value="mg">Milligram</option><option value="lb">Pound</option>
+            </select>
+          </label>
+          <label>To
+            <select id="mass-to">
+              <option value="kg">Kilogram</option><option value="g">Gram</option>
+              <option value="mg">Milligram</option><option value="lb">Pound</option>
+            </select>
+          </label>
+        </div>
+        <label>Value <input id="mass-val" type="number" inputmode="decimal"></label>
+        <button class="primary" id="mass-calc">Convert</button>
+        <p id="mass-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-temp">
+        <h3>Temperature</h3>
+        <div class="twocol">
+          <label>From
+            <select id="t-from"><option value="C">°C</option><option value="F">°F</option><option value="K">K</option></select>
+          </label>
+          <label>To
+            <select id="t-to"><option value="C">°C</option><option value="F">°F</option><option value="K">K</option></select>
+          </label>
+        </div>
+        <label>Value <input id="t-val" type="number" inputmode="decimal"></label>
+        <button class="primary" id="t-calc">Convert</button>
+        <p id="t-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-speed">
+        <h3>Speed</h3>
+        <div class="twocol">
+          <label>From
+            <select id="s-from"><option value="mps">m/s</option><option value="kmph">km/h</option><option value="mph">mph</option></select>
+          </label>
+          <label>To
+            <select id="s-to"><option value="mps">m/s</option><option value="kmph">km/h</option><option value="mph">mph</option></select>
+          </label>
+        </div>
+        <label>Value <input id="s-val" type="number" inputmode="decimal"></label>
+        <button class="primary" id="s-calc">Convert</button>
+        <p id="s-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-area">
+        <h3>Area</h3>
+        <div class="twocol">
+          <label>From
+            <select id="a-from"><option value="m2">m²</option><option value="cm2">cm²</option><option value="ft2">ft²</option><option value="acre">acre</option></select>
+          </label>
+          <label>To
+            <select id="a-to"><option value="m2">m²</option><option value="cm2">cm²</option><option value="ft2">ft²</option><option value="acre">acre</option></select>
+          </label>
+        </div>
+        <label>Value <input id="a-val" type="number" inputmode="decimal"></label>
+        <button class="primary" id="a-calc">Convert</button>
+        <p id="a-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-volume">
+        <h3>Volume</h3>
+        <div class="twocol">
+          <label>From
+            <select id="v-from"><option value="l">Litre</option><option value="ml">ml</option><option value="m3">m³</option><option value="ft3">ft³</option></select>
+          </label>
+          <label>To
+            <select id="v-to"><option value="l">Litre</option><option value="ml">ml</option><option value="m3">m³</option><option value="ft3">ft³</option></select>
+          </label>
+        </div>
+        <label>Value <input id="v-val" type="number" inputmode="decimal"></label>
+        <button class="primary" id="v-calc">Convert</button>
+        <p id="v-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-data">
+        <h3>Data</h3>
+        <div class="twocol">
+          <label>From
+            <select id="d-from">
+              <option value="B">B</option><option value="KB">KB</option><option value="MB">MB</option><option value="GB">GB</option><option value="TB">TB</option>
+            </select>
+          </label>
+          <label>To
+            <select id="d-to">
+              <option value="B">B</option><option value="KB">KB</option><option value="MB">MB</option><option value="GB">GB</option><option value="TB">TB</option>
+            </select>
+          </label>
+        </div>
+        <label>Value <input id="d-val" type="number" inputmode="decimal"></label>
+        <button class="primary" id="d-calc">Convert</button>
+        <p id="d-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-numeral">
+        <h3>Numeral System</h3>
+        <label>Input <input id="num-in" placeholder="Enter number"></label>
+        <div class="twocol">
+          <label>From
+            <select id="num-from"><option>DEC</option><option>BIN</option><option>OCT</option><option>HEX</option></select>
+          </label>
+          <label>To
+            <select id="num-to"><option>BIN</option><option>OCT</option><option>DEC</option><option>HEX</option></select>
+          </label>
+        </div>
+        <button class="primary" id="num-calc">Convert</button>
+        <p id="num-out" class="out"></p>
+      </div>
+    </section>
+
+    <!-- Finance -->
+    <section id="finance" class="page">
+      <div class="grid">
+        <button class="tile" data-open="currency">💲 Currency</button>
+        <button class="tile" data-open="gst">🧾 GST</button>
+        <button class="tile" data-open="invest">📈 Investment</button>
+        <button class="tile" data-open="loan">📄 Loan EMI</button>
+        <button class="tile" data-open="discount">🏷️ Discount</button>
+      </div>
+
+      <div class="panel" id="panel-currency">
+        <h3>Currency (manual rate)</h3>
+        <label>Amount <input id="cur-amt" type="number" inputmode="decimal"></label>
+        <div class="twocol">
+          <label>From <input id="cur-from" placeholder="e.g. INR"></label>
+          <label>To <input id="cur-to" placeholder="e.g. USD"></label>
+        </div>
+        <label>Rate (1 From = ? To) <input id="cur-rate" type="number" inputmode="decimal" placeholder="e.g. 0.012"></label>
+        <button class="primary" id="cur-calc">Convert</button>
+        <p id="cur-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-gst">
+        <h3>GST</h3>
+        <label>Amount (excl.) <input id="gst-base" type="number" inputmode="decimal"></label>
+        <label>GST % <input id="gst-rate" type="number" inputmode="decimal" value="18"></label>
+        <button class="primary" id="gst-calc">Add GST</button>
+        <p id="gst-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-invest">
+        <h3>Investment</h3>
+        <label>Principal / SIP monthly <input id="inv-p" type="number" inputmode="decimal"></label>
+        <label>Rate % p.a. <input id="inv-r" type="number" inputmode="decimal"></label>
+        <label>Years <input id="inv-n" type="number" inputmode="numeric"></label>
+        <div class="twocol">
+          <button class="primary" id="inv-simple">Simple</button>
+          <button class="primary" id="inv-comp">Compound (annual)</button>
+        </div>
+        <button class="primary" id="inv-sip">SIP (monthly comp.)</button>
+        <p id="inv-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-loan">
+        <h3>Loan EMI</h3>
+        <label>Loan Amount <input id="emi-p" type="number" inputmode="decimal"></label>
+        <label>Rate % p.a. <input id="emi-r" type="number" inputmode="decimal"></label>
+        <label>Tenure (months) <input id="emi-n" type="number" inputmode="numeric"></label>
+        <button class="primary" id="emi-calc">Calculate EMI</button>
+        <p id="emi-out" class="out"></p>
+      </div>
+
+      <div class="panel" id="panel-discount">
+        <h3>Discount</h3>
+        <label>MRP <input id="disc-mrp" type="number" inputmode="decimal"></label>
+        <label>Discount % <input id="disc-off" type="number" inputmode="decimal"></label>
+        <button class="primary" id="disc-calc">Calculate</button>
+        <p id="disc-out" class="out"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating container (for mini mode) -->
+  <div id="floatHandle" class="float-handle" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

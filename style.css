@@ -1,0 +1,134 @@
+:root{
+  --bg:#ffffff; --text:#111; --muted:#666;
+  --accent:#ff6a00; --accent-2:#f6f6f6; --border:#e8e8e8;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:system-ui, -apple-system, "Poppins", Roboto, Arial;
+  background:var(--bg); color:var(--text);
+}
+
+/* Appbar */
+.appbar{
+  position:sticky; top:0; z-index:5; background:#fff; border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between; padding:.6rem .8rem;
+}
+.tabs{display:flex; gap:.4rem; overflow:auto}
+
+/* Tabs with hover/active effects */
+.tab{
+  border:none; background:var(--accent-2); padding:.45rem .9rem; border-radius:.8rem;
+  font-weight:600; color:#333; cursor:pointer; white-space:nowrap;
+  transition:all 0.25s ease-in-out;
+}
+.tab:hover{
+  background:var(--accent);
+  color:#fff;
+  transform:scale(1.05);
+  box-shadow:0 3px 8px rgba(0,0,0,.15);
+}
+.tab.active{
+  background:var(--accent);
+  color:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+  transform:scale(1.08);
+}
+
+.actions button{
+  border:none; background:var(--accent-2); padding:.4rem .55rem; border-radius:.7rem; cursor:pointer;
+  transition:background 0.2s ease;
+}
+.actions button:hover{background:var(--accent); color:#fff}
+
+/* Layout */
+.pages{max-width:760px; margin:0 auto; padding:1rem}
+.page{display:none}
+.page.active{display:block}
+
+/* Display */
+.display-wrap{background:#fff; border:1px solid var(--border); border-radius:1rem; padding:1rem; margin-bottom:.8rem}
+.history{height:1.2rem; color:var(--muted); overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+.display{font-size:3.2rem; font-weight:600; text-align:right}
+
+/* Keypad */
+.keys{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:.6rem;
+}
+.keys button{
+  height:64px; border:none; border-radius:1rem; font-size:1.25rem; font-weight:600; background:#f5f5f5; cursor:pointer;
+  transition:transform 0.2s ease, background 0.2s ease;
+}
+.keys button:hover{background:#ddd; transform:scale(1.03);}
+.keys button:active{transform:scale(.95);}
+.keys .op{color:var(--accent)}
+.keys .equals{background:var(--accent); color:#fff}
+.keys .ghost{opacity:.8}
+
+/* Grid menu */
+.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin-bottom:1rem}
+.tile{
+  padding:1.2rem .8rem; background:#fff; border:1px solid var(--border); border-radius:1rem; cursor:pointer; text-align:center; font-weight:600;
+  transition:all 0.2s ease-in-out;
+}
+.tile:hover{
+  background:var(--accent);
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+.tile:active{transform:scale(.98)}
+
+/* Panels */
+.panel{display:none; background:#fff; border:1px solid var(--border); border-radius:1rem; padding:1rem; margin-bottom:.8rem}
+.panel.active{display:block}
+.panel h3{margin-top:0}
+label{display:block; margin:.5rem 0 .2rem; font-size:.95rem}
+input,select{
+  width:100%; padding:.7rem .8rem; border:1px solid var(--border); border-radius:.8rem; font-size:1rem; background:#fafafa;
+}
+.primary{
+  margin-top:.6rem; border:none; background:var(--accent); color:#fff; padding:.7rem 1rem; border-radius:.9rem; font-weight:600; cursor:pointer;
+  transition:background 0.2s ease, transform 0.2s ease;
+}
+.primary:hover{background:#ff7f22; transform:scale(1.03);}
+.out{background:#fcfcfc; border:1px dashed var(--border); border-radius:.8rem; padding:.7rem; min-height:2.2rem}
+
+/* small two-column */
+.twocol{display:grid; grid-template-columns:1fr 1fr; gap:.6rem}
+
+/* Mini floating mode */
+.floating{
+  position:fixed; inset:auto auto 1rem 1rem; width:320px; background:#fff; border:1px solid var(--border);
+  border-radius:1rem; box-shadow:0 12px 30px rgba(0,0,0,.15); z-index:9999; padding-bottom:.6rem;
+}
+.floating .pages{max-width:none; padding:.6rem}
+.float-handle{
+  position:fixed; width:40px; height:40px; background:var(--accent); border-radius:50%;
+  bottom:1rem; right:1rem; z-index:10000; box-shadow:0 10px 24px rgba(0,0,0,.18); cursor:grab;
+}
+
+/* Responsive */
+@media (min-width:768px){
+  .display{font-size:4rem}
+}
+
+/* Special buttons background */
+.keys .op,
+.keys .equals {
+  background:#007185;
+  color:#fff;
+}
+
+/* Close button styling */
+#closeCalc {
+  border:none;
+  background:#007185;
+  color:#fff;
+  padding:.4rem .7rem;
+  border-radius:.6rem;
+  cursor:pointer;
+  margin-right:.4rem;
+  transition:background 0.2s ease;
+}
+#closeCalc:hover{background:#005f6b;}

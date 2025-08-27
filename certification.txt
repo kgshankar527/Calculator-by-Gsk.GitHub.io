@@ -1,0 +1,24 @@
+---------------------------------------------------
+Here are the ownership and the certification details
+of the Calculator by-Gsk 1.2
+---------------------------------------------------
+
+app_name - 						Calculator by-Gsk
+app_alias - 					kgshankarcalculator
+app_author_name - 				My Company
+app_author_organizational - 	My Company
+app_author_organization - 		My Company
+app_author_locality - 			My Company
+app_author_state - 				Maharashtra
+app_author_country - 			India
+app_password - 					m4GlQEhLxPj1
+app_versionName - 				versionName "1.2"
+app_versionCode - 				102
+
+---------------------------------------------------
+The certification was created by WebIntoApp.com at
+the Wednesday 27th of August 2025 03:11:51 AM
+
+https://webintoapp.com
+---------------------------------------------------
+
