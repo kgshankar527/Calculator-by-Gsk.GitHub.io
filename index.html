@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Smart Calculator – GK</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Fontisto CDN (fi fi-rr icons) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css">
+
 </head>
 <body>
   <header class="appbar">
@@ -12,16 +15,11 @@
     <div class="mask"></div>
     <div class="indicator"></div>
 
-    <button class="tab active" data-target="#standard">Standard</button>
-    <button class="tab" data-target="#converters">Converters</button>
-    <button class="tab" data-target="#finance">Finance</button>
+    <button class="tab active" data-target="#standard">🏧</button>
+    <button class="tab" data-target="#converters">💠</button>
+    <button class="tab" data-target="#finance">💹</button>
   </div>
 
-  <div class="actions">
-    <button id="miniToggle" title="Mini / Float">↗️</button>
-    <button id="closeCalc" title="close">✖️</button>
-    <button id="moreMenu" title="More">⋮</button>
-  </div>
 </header>
 
   <!-- Main Pages -->
@@ -30,9 +28,10 @@
     <section id="standard" class="page active">
       <div class="display-wrap">
         <div id="history" class="history"></div>
+        
         <div id="display" class="display" role="textbox" aria-label="Result">0</div>
       </div>
-
+      <hr>
       <div class="keys">
         <button data-key="AC" class="op">AC</button>
         <button data-key="BACK" class="op">⌫</button>
@@ -301,9 +300,6 @@
       </div>
     </section>
   </main>
-
-  <!-- Floating container (for mini mode) -->
-  <div id="floatHandle" class="float-handle" hidden></div>
 
   <script src="app.js"></script>
 </body>
