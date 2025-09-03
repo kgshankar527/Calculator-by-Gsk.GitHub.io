@@ -24,16 +24,14 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .   # आपकी HTML/CSS/JS files
+          path: .   # Path to your static site files (HTML/CSS/JS)
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: github-pages   # ✅ यह लाइन जरूरी है
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: github-pages   # Only the environment name is required
 
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
