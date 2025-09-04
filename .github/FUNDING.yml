@@ -1,0 +1,18 @@
+github: [kgshankar527]   # GitHub Sponsors username
+
+# अगर Patreon अकाउंट है तो यहाँ ID डालें
+patreon: gaurishankarkatara
+
+# OpenCollective का नाम
+open_collective: null
+
+# Ko-fi का ID (अगर है तो डालें)
+ko_fi: null
+
+# Tidelift पैकेज (optional)
+tidelift: null
+
+# कस्टम लिंक (यहाँ आपका UPI ID और BuyMeACoffee डाल सकते हैं)
+custom:
+  - "upi://pay?pa=8769045090-2@ybl&pn=Gauri%20Shankar%20Katara&cu=INR"
+  - "https://raw.githubusercontent.com/your-repo/upi_qr.png"
